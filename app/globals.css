@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: #0a0a0f;
+  --color-foreground: #f5f5f5;
+  --color-card: #13131a;
+  --color-card-foreground: #e5e5e5;
+  --color-primary: #d4a017;
+  --color-primary-foreground: #0a0a0f;
+  --color-secondary: #1a1a25;
+  --color-secondary-foreground: #a0a0b0;
+  --color-muted: #1e1e2a;
+  --color-muted-foreground: #8888a0;
+  --color-accent: #f59e0b;
+  --color-accent-foreground: #0a0a0f;
+  --color-destructive: #ef4444;
+  --color-border: #2a2a3a;
+  --color-ring: #d4a017;
+  --color-success: #22c55e;
+  --color-success-foreground: #0a0a0f;
+  --radius: 0.75rem;
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+* {
+  border-color: var(--color-border);
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 3px;
+}
+
+/* Gold shimmer animation */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.gold-shimmer {
+  background: linear-gradient(90deg, #d4a017 0%, #f5d060 50%, #d4a017 100%);
+  background-size: 200% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Scratch card canvas styles */
+.scratch-canvas {
+  cursor: pointer;
+  touch-action: none;
+}
+
+@keyframes pulse-gold {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(212, 160, 23, 0.4); }
+  50% { box-shadow: 0 0 20px 10px rgba(212, 160, 23, 0.1); }
+}
+
+.pulse-gold {
+  animation: pulse-gold 2s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.float-animation {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes ticker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.ticker-animation {
+  animation: ticker 20s linear infinite;
+}
